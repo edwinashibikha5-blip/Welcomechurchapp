@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+< lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -59,7 +59,7 @@
         .prayer-item { border-left: 4px solid var(--primary-green); margin-bottom: 14px; background: #fff; padding: 12px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.01); }
     </style>
 </head>
-<body>
+<>
 
     <!-- Top Branding Navbar Header Layout -->
     <nav>
@@ -150,42 +150,4 @@
     </div>
 
     <script>
-    <!-- 🧭 CONTINUOUS NAVIGATION CONTROLLER BLOCK -->
-    <script>
-        // Force tabs to open cleanly by targeting view layers directly
-        function switchAppTab(tabId) {
-            // Hide all panels manually to guarantee zero click freezing
-            const panels = ['home', 'announcements', 'media', 'prayers', 'admin'];
-            panels.forEach(id => {
-                const element = document.getElementById('tab-' + id);
-                if(element) {
-                    element.style.setProperty('display', 'none', 'important');
-                }
-            });
-            
-            // Turn off active highlighting state across the navbar deck
-            document.querySelectorAll('.nav-item').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            // Uncover the chosen view container instantly on click
-            const activePanel = document.getElementById('tab-' + tabId);
-            if(activePanel) {
-                activePanel.style.setProperty('display', 'block', 'important');
-            }
-            
-            // Light up the corresponding bottom menu button
-            const activeBtn = document.getElementById('btn-' + tabId);
-            if(activeBtn) {
-                activeBtn.classList.add('active');
-            }
-        }
-
-        // Safe Fallback Auth Loop
-        function handleAdminLogin() {
-            document.getElementById('adminLoginForm').style.display = 'none';
-            document.getElementById('adminDashboard').style.display = 'block';
-        }
-    </script>
-</body>
-</html>
+    
