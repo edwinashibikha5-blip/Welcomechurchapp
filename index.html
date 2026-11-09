@@ -28,20 +28,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 3px solid #e31b6d; /* Beautiful matching outer ring */
         }
-        /* Temporary circle placeholder styled like your logo border */
-        .logo-placeholder {
-            width: 110px;
-            height: 110px;
-            border: 3px solid #e31b6d;
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 24px;
-            color: #1b4d3e; /* Dark Forest Green Text Color */
-            letter-spacing: 1px;
         }
         header h1 {
             margin: 5px 0 0 0;
@@ -67,7 +62,7 @@
             border-radius: 16px;
             margin-bottom: 25px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-            border-left: 5px solid #1b4d3e; /* Green accent */
+            border-left: 5px solid #1b4d3e; /* Green accent bar */
         }
         .card h2 {
             margin-top: 0;
@@ -87,10 +82,6 @@
             font-weight: bold;
             margin-top: 15px;
             text-align: center;
-            transition: opacity 0.2s;
-        }
-        .btn:active {
-            opacity: 0.8;
         }
     </style>
 </head>
@@ -98,8 +89,8 @@
 
     <header>
         <div class="logo-container">
-            <!-- This text mimics your layout until you link your image file later -->
-            <div class="logo-placeholder">W.P.C</div>
+            <!-- Linked exactly to your WhatsApp image file in your folder -->
+            <img src="images/IMG-20261104-WA0004.jpg" alt="WPC Logo">
         </div>
         <h1>Christ Is The Way Ministries</h1>
         <p>Preaching Christ to the Nations</p>
@@ -122,7 +113,7 @@
 
     <script>
         function openNotes() {
-            alert("Sermon notes section loading... Next, we will connect your live database to make this show real information!");
+            alert("Sermon notes dashboard loading... Everything is ready on your interface!");
         }
     </script>
 
