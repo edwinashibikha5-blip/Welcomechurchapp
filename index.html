@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>W.P.C - Christ Is The Way Ministries</title>
     
-    <!-- 🔌 Stable, Non-Blocking Database Library Connection -->
+    <!-- 🔌 Ultra-Stable Official Supabase Database Core Library Engine Link -->
     <script src="https://jsdelivr.net"></script>
 
     <style>
@@ -15,17 +15,10 @@
             --bg-light: #f7f9fa;
             --text-dark: #2d3748;
         }
-        
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            margin: 0; padding: 0; 
-            background-color: var(--bg-light); color: var(--text-dark); 
-            padding-bottom: 85px;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -webkit-tap-highlight-color: transparent;
+            margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); padding-bottom: 85px; -webkit-tap-highlight-color: transparent;
         }
-        
         nav {
             background-color: #ffffff; display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.01); position: sticky; top: 0; z-index: 100;
         }
@@ -34,13 +27,13 @@
         .nav-title { font-size: 13px; font-weight: bold; color: var(--primary-green); }
         .give-btn { background-color: var(--accent-magenta); color: white; padding: 6px 14px; border-radius: 20px; text-decoration: none; font-size: 13px; font-weight: bold; }
         
-        /* ⚡ High-Speed Layout Toggle Viewports */
+        /* 📱 Fixed Display Layout Containers */
         .app-tab { display: none; padding: 16px; max-width: 600px; margin: 0 auto; }
         
         .hero-banner {
             border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, var(--primary-green) 0%, #a21b4b 60%, var(--accent-magenta) 100%); padding: 24px; color: white; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
-        .card { background: white; border-radius: 12px; padding: 16px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.02); }
+        .card { background: white; border-radius: 12px; padding: 16px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
         .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 10px; }
         .photo-grid img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; background-color: #e2e8f0; }
         .form-group { margin-bottom: 14px; }
@@ -58,25 +51,24 @@
 </head>
 <body>
 
-    <!-- Top Branding Navigation Bar -->
     <nav>
         <div class="nav-profile">
             <img src="images/IMG-20261104-WA0017.jpg" alt="Logo" class="nav-logo" onerror="this.src='https://placeholder.com'">
             <div class="nav-title">W.P.C MINISTRIES</div>
         </div>
-        <a href="#" class="give-btn" onclick="alert('Giving platform ready!')">❤️ Give</a>
+        <a href="#" class="give-btn" onclick="alert('Giving platform connection initialized!')">❤️ Give</a>
     </nav>
 
-    <!-- 🏠 TAB 1: HOME PANEL -->
+    <!-- 🏠 TAB 1: HOME PAGE -->
     <div id="tab-home" class="app-tab" style="display: block;">
         <div class="hero-banner">
-            <div style="font-size: 11px; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">Welcome Home</div>
+            <div style="font-size: 11px; text-transform: uppercase; font-weight: bold;">Welcome Home</div>
             <h2 style="margin: 4px 0 8px 0; font-size: 24px; font-weight: 800;">Believe and Belong</h2>
             <p style="margin: 0; font-size: 12px; opacity: 0.85;">Sundays 8:30 AM · Wednesdays 4–6 PM Prayer</p>
         </div>
         <div class="card">
             <h3 style="margin-top:0; color: var(--primary-green); font-size: 16px;">📖 Daily Devotional</h3>
-            <p id="devotionalText" style="font-style: italic; border-left: 3px solid var(--accent-magenta); padding-left: 10px; color: #4a5568;">"Enter his gates with thanksgiving..." Loading fresh database updates live...</p>
+            <p id="devotionalText" style="font-style: italic; border-left: 3px solid var(--accent-magenta); padding-left: 10px; color: #4a5568;">"Enter his gates with thanksgiving..." Loading fresh data live...</p>
         </div>
     </div>
 
@@ -89,7 +81,7 @@
         </div>
     </div>
 
-    <!-- 📺 TAB 3: MEDIA STREAM -->
+    <!-- 📺 TAB 3: LIVE WORSHIP STREAMS -->
     <div id="tab-media" class="app-tab">
         <h2 style="color: var(--primary-green); margin-top:0; font-size: 20px;">📺 Live Channels</h2>
         <div class="card" style="background-color: #000; text-align: center; padding: 35px 10px; color: white; border-radius: 12px;">
@@ -101,7 +93,7 @@
         </div>
     </div>
 
-    <!-- 🙏 TAB 4: PRAYER WALL -->
+    <!-- 🙏 TAB 4: INTERACTIVE PRAYER WALL -->
     <div id="tab-prayers" class="app-tab">
         <h2 style="color: var(--primary-green); margin-top:0; font-size: 20px;">🙏 Prayer Wall</h2>
         <div class="card">
@@ -109,10 +101,10 @@
             <div class="form-group"><textarea id="prayerBody" placeholder="Type prayer request..." rows="3"></textarea></div>
             <button class="submit-btn" onclick="savePrayerRequest()" style="background-color: var(--accent-magenta);">Submit Intention</button>
         </div>
-        <div id="prayerRequestsFeed" style="font-size: 13px; color: #718096;">Syncing cloud layout data feed...</div>
+        <div id="prayerRequestsFeed" style="font-size: 13px; color: #718096;">Syncing cloud structural wall entries...</div>
     </div>
 
-    <!-- 🔒 TAB 5: ADMIN DASHBOARD -->
+    <!-- 🔒 TAB 5: ADMIN BACKEND MANAGER -->
     <div id="tab-admin" class="app-tab">
         <h2 style="color: var(--primary-green); margin-top:0; font-size: 20px;">🔒 Admin Panel</h2>
         <div class="card" id="adminLoginForm">
@@ -127,7 +119,7 @@
         </div>
     </div>
 
-    <!-- 🧭 BOTTOM NAVIGATION MENU -->
+    <!-- 🧭 BOTTOM TAB COORD NAV-BAR MENU -->
     <div class="bottom-nav">
         <button id="btn-home" class="nav-item active" onclick="switchAppTab('home')"><span>🏠</span>Home</button>
         <button id="btn-announcements" class="nav-item" onclick="switchAppTab('announcements')"><span>📢</span>Notices</button>
@@ -141,16 +133,15 @@
         const SUPABASE_KEY = "sb_publishable_700g78radNE8jijWC";
         let databaseClient = null;
 
-        // Run instantly and stably
         window.onload = function() {
             try {
-                if (typeof supabase !== 'undefined') {
+                if (typeof supabase !== 'undefined' && supabase.createClient) {
                     databaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
                     fetchDevotional();
                     fetchPrayers();
                 }
             } catch(e) {
-                console.log("Running in standalone preview layer.");
+                console.log("Offline mode fallback enabled.");
             }
         };
 
@@ -164,3 +155,9 @@
             document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('active'));
 
             document.getElementById('tab-' + tabId).style.display = 'block';
+            document.getElementById('btn-' + tabId).classList.add('active');
+        }
+
+        async function fetchDevotional() {
+            if(!databaseClient) return;
+            try {
