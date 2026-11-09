@@ -149,5 +149,67 @@
         </button>
     </div>
 
+        <!-- ⚡ HIGH-SPEED MOBILE TOUCH ACTIVE ENGINE -->
     <script>
+        // Run as soon as the app window mounts on the mobile screen
+        window.onload = function() {
+            setupMobileTouchActions();
+        };
+
+        function setupMobileTouchActions() {
+            const tabs = ['home', 'announcements', 'media', 'prayers', 'admin'];
+            
+            tabs.forEach(tabId => {
+                const btn = document.getElementById('btn-' + tabId);
+                if(btn) {
+                    // 📱 Fast Finger Tap Interceptor (Zero lag execution)
+                    btn.addEventListener('touchstart', function(e) {
+                        e.preventDefault();
+                        switchAppTab(tabId);
+                    }, { passive: false });
+                    
+                    // Fallback Click Event for desktop computer viewers
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        switchAppTab(tabId);
+                    });
+                }
+            });
+        }
+
+        // Master Container Switcher Logic Engine
+        function switchAppTab(tabId) {
+            // Hide all tab view containers instantly
+            document.getElementById('tab-home').style.display = 'none';
+            document.getElementById('tab-announcements').style.display = 'none';
+            document.getElementById('tab-media').style.display = 'none';
+            document.getElementById('tab-prayers').style.display = 'none';
+            document.getElementById('tab-admin').style.display = 'none';
+
+            // Strip the active color state from all layout icons
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Reveal the targeted view box container onto the screen
+            const targetView = document.getElementById('tab-' + tabId);
+            if(targetView) {
+                targetView.style.display = 'block';
+            }
+
+            // Light up the clicked bottom menu item in vibrant magenta
+            const targetBtn = document.getElementById('btn-' + tabId);
+            if(targetBtn) {
+                targetBtn.classList.add('active');
+            }
+        }
+
+        function handleAdminLogin() {
+            document.getElementById('adminLoginForm').style.display = 'none';
+            document.getElementById('adminDashboard').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+
     
