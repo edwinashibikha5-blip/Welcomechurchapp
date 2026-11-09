@@ -3,122 +3,337 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>W.P.C - Christ Is The Way Ministries</title>
+    <title>Welcome Pentecostal Church</title>
     <style>
+        :root {
+            --primary-green: #1b4d3e;
+            --accent-magenta: #e31b6d;
+            --bg-light: #f7f9fa;
+            --text-dark: #2d3748;
+            --text-muted: #718096;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fafafa;
-            color: #2d3748;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
         }
-        header {
-            background-color: #ffffff;
-            text-align: center;
-            padding: 30px 20px;
-            border-bottom: 4px solid #e31b6d; /* Custom Magenta Ring Color */
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-        }
-        .logo-container {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 15px auto;
-            border-radius: 50%;
+
+        /* Top Navigation Navbar */
+        nav {
             background-color: #ffffff;
             display: flex;
             align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            border: 3px solid #e31b6d; /* Beautiful matching outer ring */
+            justify-content: space-between;
+            padding: 12px 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        .logo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+
+        .nav-profile {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-logo {
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
+            border: 2px solid var(--accent-magenta);
+            object-fit: cover;
         }
-        header h1 {
-            margin: 5px 0 0 0;
-            font-size: 24px;
-            color: #1b4d3e; /* Dark Forest Green */
+
+        .nav-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: var(--primary-green);
+            line-height: 1.2;
         }
-        header p {
-            margin: 5px 0 0 0;
-            font-size: 14px;
-            color: #e31b6d; /* Magenta */
-            font-weight: 600;
+
+        .nav-subtitle {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .give-btn {
+            background-color: var(--accent-magenta);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Hero Image Banner Section */
+        .hero-banner {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('https://unsplash.com');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            box-sizing: border-box;
+            color: white;
+        }
+
+        .hero-welcome {
+            font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            background: rgba(223, 27, 109, 0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            align-self: flex-start;
+            margin-bottom: 6px;
+            font-weight: bold;
+            border-left: 3px solid var(--accent-magenta);
         }
-        .container {
-            padding: 20px;
+
+        .hero-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 0 8px 0;
+        }
+
+        .hero-schedule {
+            font-size: 12px;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        /* App Sections Container */
+        .main-content {
+            padding: 16px;
             max-width: 600px;
             margin: 0 auto;
         }
-        .card {
-            background: white;
-            padding: 24px;
-            border-radius: 16px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-            border-left: 5px solid #1b4d3e; /* Green accent bar */
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0 12px 0;
         }
-        .card h2 {
-            margin-top: 0;
-            color: #1b4d3e;
-            font-size: 20px;
+
+        .section-title {
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: var(--accent-magenta);
+            letter-spacing: 0.5px;
+            margin: 0;
+        }
+
+        .see-all-link {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        /* Card Component Configurations */
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        /* Event Row Layout */
+        .event-row {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
-        .btn {
-            display: block;
-            background-color: #e31b6d; /* Magenta Button */
-            color: white;
-            padding: 14px 20px;
-            text-decoration: none;
+
+        .date-box {
+            background-color: #fff0f5;
             border-radius: 8px;
-            font-weight: bold;
-            margin-top: 15px;
+            padding: 8px;
             text-align: center;
+            min-width: 45px;
         }
-        .btn:active {
-            opacity: 0.8;
+
+        .date-day {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--accent-magenta);
+            display: block;
+            line-height: 1;
+        }
+
+        .date-month {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: bold;
+        }
+
+        .event-details h3 {
+            margin: 0 0 4px 0;
+            font-size: 14px;
+            color: var(--primary-green);
+        }
+
+        .event-details p {
+            margin: 0;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Devotional Section Layout */
+        .devotional-card {
+            border-top: 4px solid var(--accent-magenta);
+        }
+
+        .devotional-date {
+            font-size: 15px;
+            font-weight: bold;
+            margin: 0 0 12px 0;
+            color: var(--primary-green);
+        }
+
+        .devotional-quote {
+            font-style: italic;
+            border-left: 3px solid var(--primary-green);
+            padding-left: 10px;
+            margin: 0 0 12px 0;
+            font-size: 13px;
+            color: #4a5568;
+            line-height: 1.5;
+        }
+
+        .devotional-body {
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--text-muted);
+            margin: 0 0 12px 0;
+        }
+
+        .read-more-btn {
+            color: var(--accent-magenta);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Announcement List Layout */
+        .announcement-item {
+            display: flex;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .announcement-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .announcement-item:first-child {
+            padding-top: 0;
+        }
+
+        .badge {
+            font-size: 9px;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+
+        .badge-thanksgiving { background-color: #ffe6f0; color: var(--accent-magenta); }
+        .badge-youth { background-color: #e6fffa; color: #319795; }
+        .badge-children { background-color: #ebf8ff; color: #2b6cb0; }
+        .badge-prayer { background-color: #f7fafc; color: var(--primary-green); border: 1px solid #cbd5e0; }
+
+        .announcement-text h4 {
+            margin: 0 0 4px 0;
+            font-size: 14px;
+            color: var(--primary-green);
+        }
+
+        .announcement-text p {
+            margin: 0;
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.4;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-container">
-            <!-- Linked perfectly to your true logo filename -->
-            <img src="images/IMG-20261104-WA0017.jpg" alt="WPC Logo">
+    <!-- Top Sticky Bar -->
+    <nav>
+        <div class="nav-profile">
+            <!-- Automatically uses your uploaded logo file -->
+            <img src="images/IMG-20261104-WA0017.jpg" alt="Logo" class="nav-logo" onerror="this.src='https://placeholder.com'">
+            <div>
+                <div class="nav-title">WELCOME PENTECOSTAL</div>
+                <div class="nav-subtitle">Church App</div>
+            </div>
         </div>
-        <h1>Christ Is The Way Ministries</h1>
-        <p>Preaching Christ to the Nations</p>
-    </header>
+        <a href="#" class="give-btn" onclick="triggerGive()">❤️ Give</a>
+    </nav>
 
-    <div class="container">
-        <!-- Service Card -->
-        <div class="card">
-            <h2>📢 Sunday Gathering</h2>
-            <p>Come fellowship with us this Sunday starting at 9:00 AM for an uplifting prophetic service.</p>
-        </div>
-
-        <!-- Sermon Notes Card -->
-        <div class="card" style="border-left-color: #e31b6d;">
-            <h2>📖 Digital Sermon Notes</h2>
-            <p>Access modern scriptures, outlines, and notes shared by our ministers dynamically on your device.</p>
-            <a href="#" class="btn" onclick="openNotes()">Open Notes Dashboard</a>
-        </div>
+    <!-- Main Visual Banner Header -->
+    <div class="hero-banner">
+        <span class="hero-welcome">Welcome Home</span>
+        <h2 class="hero-title">Believe and Belong</h2>
+        <p class="hero-schedule">Sundays 8:30 AM · Wednesdays 4–6 PM prayer</p>
     </div>
 
-    <script>
-        function openNotes() {
-            alert("Sermon notes dashboard loading... Everything is ready on your interface!");
-        }
-    </script>
+    <!-- Active Feed Content Container -->
+    <div class="main-content">
 
-</body>
-</html>
+        <!-- Weekly Summary Tracker Slider -->
+        <div class="section-header">
+            <h3 class="section-title">This week at church</h3>
+            <a href="#" class="see-all-link">See all ›</a>
+        </div>
+        <div class="card event-row" onclick="openEvent()">
+            <div class="date-box">
+                <span class="date-day">08</span>
+                <span class="date-month">Nov</span>
+            </div>
+            <div class="event-details">
+                <h3>Thanksgiving Series: Divine Growth</h3>
+                <p>📍 Welcome Pentecostal Church</p>
+            </div>
+        </div>
+
+        <!-- Word of the Day Devotional Segment -->
+        <div class="section-header">
+            <h3 class="section-title">Daily Devotional</h3>
+        </div>
+        <div class="card devotional-card">
+            <div class="devotional-date">November 7, 2026</div>
+            <p class="devotional-quote">"Enter his gates with thanksgiving and his courts with praise: give thanks to him and praise his name." — Psalm 100:4</p>
+            <p class="devotional-body">As we prepare for Sunday worship, let us come with hearts already full of praise. Thanksgiving opens the door to God's presence — it is the way we enter.</p>
+            <a href="#" class="read-more-btn" onclick="openDevotional()">Read full devotional ›</a>
+        </div>
+
+        <!-- Feed List Component Area -->
+        <div class="section-header">
+            <h3 class="section-title">Announcements</h3>
+            <a href="#" class="see-all-link">See all ›</a>
+        </div>
+        <div class="card">
+            
+            <!-- Announcement 1 -->
