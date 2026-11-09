@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>W.P.C - Christ Is The Way Ministries</title>
     
-    <!-- 🔌 Ultra-Stable Official Supabase Database Core Library Engine Link -->
-    <script src="https://jsdelivr.net"></script>
+    <!-- ⚡ Asynchronous Non-Blocking Database Initialization Loader -->
+    <script async src="https://supabase.co" id="supabase-script"></script>
 
     <style>
         :root {
@@ -15,10 +15,18 @@
             --bg-light: #f7f9fa;
             --text-dark: #2d3748;
         }
+        
+        /* ⚡ Hardware-Accelerated Layout Engine Rendering layers */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); padding-bottom: 85px; -webkit-tap-highlight-color: transparent;
+            margin: 0; padding: 0; 
+            background-color: var(--bg-light); color: var(--text-dark); 
+            padding-bottom: 85px;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -webkit-tap-highlight-color: transparent;
         }
+        
         nav {
             background-color: #ffffff; display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.01); position: sticky; top: 0; z-index: 100;
         }
@@ -27,17 +35,17 @@
         .nav-title { font-size: 13px; font-weight: bold; color: var(--primary-green); }
         .give-btn { background-color: var(--accent-magenta); color: white; padding: 6px 14px; border-radius: 20px; text-decoration: none; font-size: 13px; font-weight: bold; }
         
-        /* 📱 Fixed Display Layout Containers */
-        .app-tab { display: none; padding: 16px; max-width: 600px; margin: 0 auto; }
+        /* ⚡ High-Speed Layout Toggle Classes */
+        .app-tab { display: none; padding: 16px; max-width: 600px; margin: 0 auto; will-change: display; }
         
         .hero-banner {
             border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, var(--primary-green) 0%, #a21b4b 60%, var(--accent-magenta) 100%); padding: 24px; color: white; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
-        .card { background: white; border-radius: 12px; padding: 16px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+        .card { background: white; border-radius: 12px; padding: 16px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.02); }
         .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 10px; }
         .photo-grid img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; background-color: #e2e8f0; }
         .form-group { margin-bottom: 14px; }
-        .form-group input, .form-group textarea { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #cbd5e0; box-sizing: border-box; font-size: 14px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #cbd5e0; box-sizing: border-box; font-size: 14px; -webkit-appearance: none; }
         .submit-btn { background-color: var(--primary-green); color: white; border: none; width: 100%; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 14px; cursor: pointer; }
         
         .bottom-nav {
@@ -45,34 +53,37 @@
         }
         .nav-item { background: none; border: none; color: #a0aec0; display: flex; flex-direction: column; align-items: center; font-size: 11px; font-weight: bold; cursor: pointer; gap: 4px; width: 20%; text-align: center; }
         .nav-item.active { color: var(--accent-magenta); }
-        .nav-item span { font-size: 20px; display: block; margin-bottom: 2px; }
+        
+        /* Inline Scalable SVGs to optimize image processing latency */
+        .nav-item svg { width: 22px; height: 22px; fill: currentColor; }
         .prayer-item { border-left: 4px solid var(--primary-green); margin-bottom: 14px; background: #fff; padding: 12px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.01); }
     </style>
 </head>
 <body>
 
+    <!-- Top Branding Navbar Header Layout -->
     <nav>
         <div class="nav-profile">
             <img src="images/IMG-20261104-WA0017.jpg" alt="Logo" class="nav-logo" onerror="this.src='https://placeholder.com'">
             <div class="nav-title">W.P.C MINISTRIES</div>
         </div>
-        <a href="#" class="give-btn" onclick="alert('Giving platform connection initialized!')">❤️ Give</a>
+        <a href="#" class="give-btn" onclick="alert('Giving platform ready!')">❤️ Give</a>
     </nav>
 
-    <!-- 🏠 TAB 1: HOME PAGE -->
+    <!-- 🏠 TAB 1: HOME PANEL -->
     <div id="tab-home" class="app-tab" style="display: block;">
         <div class="hero-banner">
-            <div style="font-size: 11px; text-transform: uppercase; font-weight: bold;">Welcome Home</div>
+            <div style="font-size: 11px; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">Welcome Home</div>
             <h2 style="margin: 4px 0 8px 0; font-size: 24px; font-weight: 800;">Believe and Belong</h2>
             <p style="margin: 0; font-size: 12px; opacity: 0.85;">Sundays 8:30 AM · Wednesdays 4–6 PM Prayer</p>
         </div>
         <div class="card">
             <h3 style="margin-top:0; color: var(--primary-green); font-size: 16px;">📖 Daily Devotional</h3>
-            <p id="devotionalText" style="font-style: italic; border-left: 3px solid var(--accent-magenta); padding-left: 10px; color: #4a5568;">"Enter his gates with thanksgiving..." Loading fresh data live...</p>
+            <p id="devotionalText" style="font-style: italic; border-left: 3px solid var(--accent-magenta); padding-left: 10px; color: #4a5568;">"Enter his gates with thanksgiving..." Loading fresh layout files...</p>
         </div>
     </div>
 
-    <!-- 📢 TAB 2: NOTICE BOARD -->
+    <!-- 📢 TAB 2: NOTICE FEED PANEL -->
     <div id="tab-announcements" class="app-tab">
         <h2 style="color: var(--primary-green); margin-top:0; font-size: 20px;">📢 Notice Board</h2>
         <div class="card">
@@ -81,7 +92,7 @@
         </div>
     </div>
 
-    <!-- 📺 TAB 3: LIVE WORSHIP STREAMS -->
+    <!-- 🖼️ TAB 3: VIDEO STREAM SELECTION -->
     <div id="tab-media" class="app-tab">
         <h2 style="color: var(--primary-green); margin-top:0; font-size: 20px;">📺 Live Channels</h2>
         <div class="card" style="background-color: #000; text-align: center; padding: 35px 10px; color: white; border-radius: 12px;">
@@ -93,7 +104,7 @@
         </div>
     </div>
 
-    <!-- 🙏 TAB 4: INTERACTIVE PRAYER WALL -->
+    <!-- 🙏 TAB 4: CONGREGATION INPUT WALL -->
     <div id="tab-prayers" class="app-tab">
         <h2 style="color: var(--primary-green); margin-top:0; font-size: 20px;">🙏 Prayer Wall</h2>
         <div class="card">
@@ -101,10 +112,10 @@
             <div class="form-group"><textarea id="prayerBody" placeholder="Type prayer request..." rows="3"></textarea></div>
             <button class="submit-btn" onclick="savePrayerRequest()" style="background-color: var(--accent-magenta);">Submit Intention</button>
         </div>
-        <div id="prayerRequestsFeed" style="font-size: 13px; color: #718096;">Syncing cloud structural wall entries...</div>
+        <div id="prayerRequestsFeed" style="font-size: 13px; color: #718096;">Syncing cloud layout data feed...</div>
     </div>
 
-    <!-- 🔒 TAB 5: ADMIN BACKEND MANAGER -->
+    <!-- 🔒 TAB 5: ADMIN COMPONENT LOGS -->
     <div id="tab-admin" class="app-tab">
         <h2 style="color: var(--primary-green); margin-top:0; font-size: 20px;">🔒 Admin Panel</h2>
         <div class="card" id="adminLoginForm">
@@ -119,45 +130,23 @@
         </div>
     </div>
 
-    <!-- 🧭 BOTTOM TAB COORD NAV-BAR MENU -->
+    <!-- 🧭 BOTTOM NAVIGATION DOCK (With High-Speed Inline Vector Icons) -->
     <div class="bottom-nav">
-        <button id="btn-home" class="nav-item active" onclick="switchAppTab('home')"><span>🏠</span>Home</button>
-        <button id="btn-announcements" class="nav-item" onclick="switchAppTab('announcements')"><span>📢</span>Notices</button>
-        <button id="btn-media" class="nav-item" onclick="switchAppTab('media')"><span>🖼️</span>Media</button>
-        <button id="btn-prayers" class="nav-item" onclick="switchAppTab('prayers')"><span>🙏</span>Prayers</button>
-        <button id="btn-admin" class="nav-item" onclick="switchAppTab('admin')"><span>🔒</span>Admin</button>
+        <button id="btn-home" class="nav-item active" onclick="switchAppTab('home')">
+            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>Home
+        </button>
+        <button id="btn-announcements" class="nav-item" onclick="switchAppTab('announcements')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 9h-2V9h2v2zm0-4h-2V5h2v2z"/></svg>Notices
+        </button>
+        <button id="btn-media" class="nav-item" onclick="switchAppTab('media')">
+            <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 9H9v-2h3v2zm5 0h-3v-2h3v2z"/></svg>Media
+        </button>
+        <button id="btn-prayers" class="nav-item" onclick="switchAppTab('prayers')">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.42 0l2.79-2.79C10.02 18.66 10.99 19 12 19c4.97 0 9-4.03 9-9s-4.03-9-9-9zm1 10h-2V7h2v5z"/></svg>Prayers
+        </button>
+        <button id="btn-admin" class="nav-item" onclick="switchAppTab('admin')">
+            <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>Admin
+        </button>
     </div>
 
     <script>
-        const SUPABASE_URL = "https://supabase.co"; 
-        const SUPABASE_KEY = "sb_publishable_700g78radNE8jijWC";
-        let databaseClient = null;
-
-        window.onload = function() {
-            try {
-                if (typeof supabase !== 'undefined' && supabase.createClient) {
-                    databaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-                    fetchDevotional();
-                    fetchPrayers();
-                }
-            } catch(e) {
-                console.log("Offline mode fallback enabled.");
-            }
-        };
-
-        function switchAppTab(tabId) {
-            document.getElementById('tab-home').style.display = 'none';
-            document.getElementById('tab-announcements').style.display = 'none';
-            document.getElementById('tab-media').style.display = 'none';
-            document.getElementById('tab-prayers').style.display = 'none';
-            document.getElementById('tab-admin').style.display = 'none';
-
-            document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('active'));
-
-            document.getElementById('tab-' + tabId).style.display = 'block';
-            document.getElementById('btn-' + tabId).classList.add('active');
-        }
-
-        async function fetchDevotional() {
-            if(!databaseClient) return;
-            try {
