@@ -2,159 +2,316 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>W.P.C - Christ Is The Way Ministries</title>
-    
-    <!-- 🔌 Stable Core Database Library Engine Link -->
-    <script src="https://jsdelivr.net"></script>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Pentecostal Church</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cloudflare.com">
     <style>
         :root {
-            --primary-green: #1b4d3e;
-            --accent-magenta: #e31b6d;
-            --bg-light: #f7f9fa;
-            --text-dark: #2d3748;
+            --primary: #5c1d24;
+            --primary-light: #fdf6f6;
+            --accent: #d9383a;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-footer: #1e3f20;
+            --white: #ffffff;
         }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); padding-bottom: 85px; -webkit-tap-highlight-color: transparent;
+            background-color: #f9f9f9;
+            color: var(--text-dark);
+            padding-bottom: 60px;
         }
-        nav {
-            background-color: #ffffff; display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.01); position: sticky; top: 0; z-index: 100;
+
+        /* Top Navigation */
+        header {
+            background: var(--white);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        .nav-profile { display: flex; align-items: center; gap: 8px; }
-        .nav-logo { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--accent-magenta); object-fit: cover; }
-        .nav-title { font-size: 13px; font-weight: bold; color: var(--primary-green); }
-        .give-btn { background-color: var(--accent-magenta); color: white; padding: 6px 14px; border-radius: 20px; text-decoration: none; font-size: 13px; font-weight: bold; }
+
+        .logo {
+            font-weight: bold;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-give {
+            background: var(--accent);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://unsplash.com');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Container layouts */
+        .section {
+            padding: 30px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 13px;
+            text-transform: uppercase;
+            color: var(--accent);
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        /* Daily Devotional Card */
+        .devotional-card {
+            background: var(--primary-light);
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+
+        .devotional-date {
+            color: var(--accent);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .devotional-quote {
+            font-style: italic;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Event Cards */
+        .event-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .event-card {
+            background: var(--white);
+            border: 1px solid #eee;
+            border-radius: 8px;
+            display: flex;
+            padding: 15px;
+            gap: 15px;
+        }
+
+        .event-date-box {
+            background: var(--primary-light);
+            color: var(--accent);
+            min-width: 60px;
+            height: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 6px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .event-date-box .month { font-size: 11px; text-transform: uppercase; }
+        .event-date-box .day { font-size: 18px; }
+
+        .event-details h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .event-details p {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* Ministries Grid */
+        .ministries-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .ministry-item {
+            background: var(--white);
+            border: 1px solid #eee;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .ministry-item i {
+            color: var(--bg-footer);
+            width: 20px;
+        }
+
+        /* Footer contact card */
+        footer {
+            background: var(--bg-footer);
+            color: var(--white);
+            padding: 40px 20px;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-content h2 { margin-bottom: 20px; font-weight: 400; }
+        .info-row { display: flex; gap: 10px; margin-bottom: 15px; font-size: 14px; }
+        .info-row i { color: #a2cba4; margin-top: 3px; }
         
-        .app-tab { display: none; padding: 16px; max-width: 600px; margin: 0 auto; }
-        .hero-banner {
-            border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, var(--primary-green) 0%, #a21b4b 60%, var(--accent-magenta) 100%); padding: 24px; color: white; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        .pastor-box {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
-        .card { background: white; border-radius: 12px; padding: 16px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
-        .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 10px; }
-        .photo-grid img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; background-color: #e2e8f0; }
-        .form-group { margin-bottom: 14px; }
-        .form-group label { display: block; font-size: 12px; font-weight: bold; color: var(--primary-green); margin-bottom: 6px; }
-        .form-group input, .form-group textarea { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #cbd5e0; box-sizing: border-box; font-size: 14px; }
-        .submit-btn { background-color: var(--primary-green); color: white; border: none; width: 100%; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 14px; cursor: pointer; text-align: center; display: block; }
-        
+
+        /* Fixed Bottom Navigation Bar */
         .bottom-nav {
-            position: fixed; bottom: 0; left: 0; right: 0; background-color: #ffffff; display: flex; justify-content: space-around; padding: 10px 0; box-shadow: 0 -4px 10px rgba(0,0,0,0.03); z-index: 1000; border-top: 1px solid #edf2f7;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            z-index: 200;
         }
-        .nav-item { background: none; border: none; color: #a0aec0; display: flex; flex-direction: column; align-items: center; font-size: 11px; font-weight: bold; cursor: pointer; gap: 4px; width: 20%; text-align: center; }
-        .nav-item.active { color: var(--accent-magenta); }
-        .nav-item span { font-size: 20px; display: block; margin-bottom: 2px; }
-        .prayer-item { border-left: 4px solid var(--primary-green); margin-bottom: 14px; background: #fff; padding: 12px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.01); }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-light);
+            font-size: 11px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .nav-item.active, .nav-item:hover { color: var(--accent); }
+        .nav-item i { font-size: 18px; margin-bottom: 3px; }
+
+        /* Admin Dashboard Overlay */
+        #adminPanel {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+            color: #333;
+        }
+
+        .admin-modal {
+            background: white;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .admin-modal h2 { margin-bottom: 15px; color: var(--primary); }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 12px; margin-bottom: 5px; font-weight: bold; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        
+        .admin-actions { display: flex; gap: 10px; margin-top: 20px; }
+        .btn-save { background: var(--bg-footer); color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
+        .btn-close { background: #666; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
+
+        @media (max-width: 600px) {
+            .ministries-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-profile">
-            <img src="images/IMG-20261104-WA0017.jpg" alt="Logo" class="nav-logo" onerror="this.src='https://placeholder.com'">
-            <div class="nav-title">W.P.C MINISTRIES</div>
+    <!-- Header Navbar -->
+    <header>
+        <div class="logo"><i class="fa-solid fa-church"></i> Welcome Pentecostal Church</div>
+        <a href="#" class="btn-give"><i class="fa-solid fa-heart"></i> Give</a>
+    </header>
+
+    <!-- Main Hero Banner -->
+    <section class="hero">
+        <h1 id="view-hero-title">Believe and Belong</h1>
+        <p id="view-hero-schedule">Sundays 8:30 AM · Wednesdays 4–6 PM prayer</p>
+    </section>
+
+    <!-- Daily Devotional Section -->
+    <section class="section">
+        <div class="section-title">Daily Devotional</div>
+        <div class="devotional-card">
+            <div class="devotional-date" id="view-dev-date">November 8, 2026</div>
+            <div class="devotional-quote" id="view-dev-quote">"Enter his gates with thanksgiving and his courts with praise; give thanks to him and praise his name." — Psalm 100:4</div>
+            <p id="view-dev-body">Let us continue with hearts already full of praise. Thanksgiving opens the door to God's presence - it is the way we enter.</p>
         </div>
-        <a href="#" class="give-btn" onclick="alert('Giving structure ready!')">❤️ Give</a>
-    </nav>
+    </section>
 
-    <!-- 🏠 TAB 1: HOME PAGE CONTAINER -->
-    <div id="tab-home" class="app-tab" style="display: block;">
-        <div class="hero-banner">
-            <div style="font-size: 11px; text-transform: uppercase; font-weight: bold;">Welcome Home</div>
-            <h2 style="margin: 4px 0 8px 0; font-size: 24px; font-weight: 800;">Believe and Belong</h2>
-            <p style="margin: 0; font-size: 12px; opacity: 0.85;">Sundays 8:30 AM · Wednesdays 4–6 PM Prayer</p>
+    <!-- Upcoming Events Section -->
+    <section class="section">
+        <div class="section-title">Coming Up Events</div>
+        <div class="event-list" id="events-container">
+            <!-- Dynamic events loaded via Javascript -->
         </div>
-        <div class="card">
-            <h3 style="margin-top:0; color: var(--primary-green); font-size: 16px;">📖 Daily Devotional</h3>
-            <p id="devotionalText" style="font-style: italic; border-left: 3px solid var(--accent-magenta); padding-left: 10px; color: #4a5568;">"Enter his gates with thanksgiving..." Loading fresh updates live...</p>
-        </div>
-    </div>
+    </section>
 
-    <!-- 📢 TAB 2: NOTICE BOARD CONTAINER -->
-    <div id="tab-announcements" class="app-tab">
-        <h2 style="color: var(--primary-green); margin-top:0; font-size: 20px;">📢 Notice Board</h2>
-        <div class="card">
-            <h3 style="margin-top:0; font-size: 15px; color: var(--primary-green);">Thanksgiving Series Launch</h3>
-            <p style="font-size: 13px; color: #4a5568; margin-bottom: 0;">Join us this Sunday at 9:00 AM as we gather to celebrate God's immense faithfulness throughout the year.</p>
-        </div>
-    </div>
-
-    <!-- 📺 TAB 3: MEDIA CHANNELS CONTAINER -->
-    <div id="tab-media" class="app-tab">
-        <h2 style="color: var(--primary-green); margin-top:0; font-size: 20px;">📺 Live Channels</h2>
-        <div class="card" style="background-color: #000; text-align: center; padding: 35px 10px; color: white; border-radius: 12px;">
-            <a href="https://youtube.com" target="_blank" style="color: #ff0000; font-weight: bold; text-decoration: none; font-size: 15px;">🎥 Open YouTube Channel Stream</a>
-        </div>
-        <div class="photo-grid">
-            <img src="images/IMG-20261104-WA0017.jpg" alt="1" onerror="this.src='https://placeholder.com'">
-            <img src="images/IMG-20261104-WA0017.jpg" alt="2" onerror="this.src='https://placeholder.com'">
-        </div>
-    </div>
-
-    <!-- 🙏 TAB 4: PRAYER WALL CONTAINER -->
-    <div id="tab-prayers" class="app-tab">
-        <h2 style="color: var(--primary-green); margin-top:0; font-size: 20px;">🙏 Prayer Wall</h2>
-        <div class="card">
-            <div class="form-group"><input type="text" id="prayerName" placeholder="Your Name (Optional)"></div>
-            <div class="form-group"><textarea id="prayerBody" placeholder="Type prayer request..." rows="3"></textarea></div>
-            <button class="submit-btn" style="background-color: var(--accent-magenta);" onclick="savePrayerRequest()">Submit Intention</button>
-        </div>
-        <div id="prayerRequestsFeed" style="font-size: 13px; color: #718096;">Syncing cloud structural feed...</div>
-    </div>
-
-    <!-- 🔒 TAB 5: ADMIN MANAGEMENT CONTAINER -->
-    <div id="tab-admin" class="app-tab">
-        <h2 style="color: var(--primary-green); margin-top:0; font-size: 20px;">🔒 Admin Panel</h2>
-        <div class="card" id="adminLoginForm">
-            <div class="form-group"><input type="email" id="adminEmail" placeholder="admin@church.com"></div>
-            <div class="form-group"><input type="password" id="adminPassword" placeholder="Password"></div>
-            <button class="submit-btn" onclick="handleAdminLogin()">Login</button>
-        </div>
-        <div class="card" id="adminDashboard" style="display: none;">
-            <h3 style="margin-top:0; font-size: 15px; color: var(--accent-magenta);">Update Devotional</h3>
-            <div class="form-group"><textarea id="newDevotional" rows="3" placeholder="Type text here..."></textarea></div>
-            <button class="submit-btn" onclick="publishDevotionalText()">Publish Update</button>
-        </div>
-    </div>
-
-    <!-- 🧭 BOTTOM DOCK NAVIGATION MENUS -->
-    <div class="bottom-nav">
-        <button id="btn-home" class="nav-item active" onclick="switchAppTab('home')"><span>🏠</span>Home</button>
-        <button id="btn-announcements" class="nav-item" onclick="switchAppTab('announcements')"><span>📢</span>Notices</button>
-        <button id="btn-media" class="nav-item" onclick="switchAppTab('media')"><span>🖼️</span>Media</button>
-        <button id="btn-prayers" class="nav-item" onclick="switchAppTab('prayers')"><span>🙏</span>Prayers</button>
-        <button id="btn-admin" class="nav-item" onclick="switchAppTab('admin')"><span>🔒</span>Admin</button>
-    </div>
-
-    <!-- ⚡ HIGH-SPEED CORE ENGINE CONTROLLERS -->
-    <script>
-        const SUPABASE_URL = "https://iwtnheoxtarfnsafvsfc.supabase.co"; 
-        const SUPABASE_KEY = "sb_publishable_700g78radNE8jijWC";
-        let databaseClient = null;
-
-        window.onload = function() {
-            try {
-                if (typeof supabase !== 'undefined' && supabase.createClient) {
-                    databaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-                    fetchDevotional();
-                    fetchPrayers();
-                }
-            } catch(e) {
-                console.log("Offline structural engine monitoring.");
-            }
-        };
-
-        function switchAppTab(tabId) {
-            document.getElementById('tab-home').style.display = 'none';
-            document.getElementById('tab-announcements').style.display = 'none';
-            document.getElementById('tab-media').style.display = 'none';
-            document.getElementById('tab-prayers').style.display = 'none';
-            document.getElementById('tab-admin').style.display = 'none';
-
-            document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('active'));
-
-            document.getElementById('tab-' + tabId).style.display = 'block';
-            document.getElementById('btn-' + tabId).classList.add('active');
-        }
-
+    <!-- Ministries Section -->
+    <section class="section">
+        <div class="section-title">Our Ministries</div>
+        <div class="ministries-grid">
+            <div class="ministry-item"><i class="fa-solid fa-user-group"></i> Youth</div>
+            <div class="ministry-item"><i class="fa-solid fa-person"></i> Men's Fellowship</div>
+            <div class="ministry-item"><i class="fa-solid fa-person-dress"></i> Women's Ministry</div>
+            <div class="ministry-item"><i class="fa-solid fa-children"></i> Sunday School</div>
+            <div class="ministry-item"><i class="fa-solid fa-music"></i> Praise & Worship</div>
+            <div class="ministry-item"><i class="fa-solid fa-hands-helping"></i> Ushers & Hospitality</div>
+            <div class="ministry-item"><i class="fa-solid fa-bullhorn"></i> Outreach & Evangelism</div>
