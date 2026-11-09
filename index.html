@@ -208,6 +208,25 @@
             document.getElementById('adminLoginForm').style.display = 'none';
             document.getElementById('adminDashboard').style.display = 'block';
         }
+              // ⚡ AUTOMATED EVENT CONNECTOR EXTENSION
+        // This finds your button automatically and wires it up without editing your HTML!
+        document.addEventListener("DOMContentLoaded", () => {
+            const publishBtn = document.getElementById("publishDevotionalBtn");
+            if (publishBtn) {
+                // Wire high-speed mobile touch action
+                publishBtn.addEventListener("touchstart", (e) => {
+                    e.preventDefault();
+                    publishDevotionalText();
+                }, { passive: false });
+                
+                // Wire standard computer click action
+                publishBtn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    publishDevotionalText();
+                });
+            }
+        });
+
     </script>
 </body>
 </html>
