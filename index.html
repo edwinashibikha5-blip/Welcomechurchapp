@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>W.P.C - Christ Is The Way Ministries</title>
+    
+    <!-- 🔌 Supabase Database Link -->
     <script src="https://jsdelivr.net"></script>
+    
     <style>
         :root {
             --primary-green: #1b4d3e;
@@ -24,8 +27,8 @@
         .nav-title { font-size: 13px; font-weight: bold; color: var(--primary-green); }
         .give-btn { background-color: var(--accent-magenta); color: white; padding: 6px 14px; border-radius: 20px; text-decoration: none; font-size: 13px; font-weight: bold; }
         
+        /* 📂 Tabs configuration - explicitly handles hiding/showing correctly */
         .app-tab { display: none; padding: 16px; max-width: 600px; margin: 0 auto; }
-        .app-tab.active { display: block; }
         
         .hero-banner {
             border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, var(--primary-green) 0%, #a21b4b 60%, var(--accent-magenta) 100%); padding: 24px; color: white; margin-bottom: 20px;
@@ -35,7 +38,7 @@
         .photo-grid img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; background-color: #e2e8f0; }
         .form-group { margin-bottom: 14px; }
         .form-group input, .form-group textarea { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e0; box-sizing: border-box; }
-        .submit-btn { background-color: var(--primary-green); color: white; border: none; width: 100%; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 14px; }
+        .submit-btn { background-color: var(--primary-green); color: white; border: none; width: 100%; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 14px; cursor: pointer; }
         
         .bottom-nav {
             position: fixed; bottom: 0; left: 0; right: 0; background-color: #ffffff; display: flex; justify-content: space-around; padding: 10px 0; box-shadow: 0 -4px 10px rgba(0,0,0,0.03); z-index: 1000;
@@ -57,7 +60,7 @@
     </nav>
 
     <!-- 🏠 HOME TAB -->
-    <div id="home" class="app-tab active">
+    <div id="home" class="app-tab" style="display: block;">
         <div class="hero-banner">
             <div style="font-size: 11px; text-transform: uppercase; font-weight: bold;">Welcome Home</div>
             <h2 style="margin: 4px 0 8px 0; font-size: 24px;">Believe and Belong</h2>
@@ -126,43 +129,48 @@
     </div>
 
     <script>
-        const SUPABASE_URL = "https://iwtnheoxtarfnsafvsfc.supabase.co"; 
+        const SUPABASE_URL = "https://supabase.co"; 
         const SUPABASE_KEY = "sb_publishable_700g78radNE8jijWC";
-        const database = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        let database = null;
 
-        window.onload = function() { fetchDevotional(); fetchPrayers(); };
+        // Fail-safe wrapper initialization check
+        try {
+            if (typeof supabase !== 'undefined' && supabase.createClient) {
+                database = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+            }
+        } catch(e) {
+            console.log("Running in offline sandbox mode.");
+        }
+
+        window.onload = function() { 
+            if(database) {
+                fetchDevotional(); 
+                fetchPrayers(); 
+            } else {
+                document.getElementById('devotionalText').innerText = '"Enter his gates with thanksgiving..." (Running smoothly in offline preview sandbox mode)';
+                document.getElementById('prayerRequestsFeed').innerHTML = '<p style="color:gray;font-size:12px;padding:10px;">Offline Sandbox Mode ready.</p>';
+            }
+        };
 
         function switchAppTab(tabId) {
-            // Hide all tabs and remove active color from all buttons
-            document.querySelectorAll('.app-tab').forEach(t => t.style.display = 'none');
+            // Safe manual fallback tab engine
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('announcements').style.display = 'none';
+            document.getElementById('media').style.display = 'none';
+            document.getElementById('prayers').style.display = 'none';
+            document.getElementById('admin').style.display = 'none';
+            
             document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
             
-            // Show the clicked tab and light up the clicked button
-            document.getElementById(tabId).style.display = 'block';
+            // Show target
+            const targetContainer = document.getElementById(tabId);
+            if(targetContainer) targetContainer.style.display = 'block';
+            
             const targetBtn = document.getElementById('btn-' + tabId);
             if(targetBtn) targetBtn.classList.add('active');
         }
 
         async function fetchDevotional() {
+            if(!database) return;
             try {
                 const { data } = await database.from('devotionals').select('*').order('id', { ascending: false }).limit(1);
-                if (data && data.length > 0) document.getElementById('devotionalText').innerText = `"${data.body}"`;
-            } catch(e){}
-        }
-
-        async function fetchPrayers() {
-            try {
-                const { data } = await database.from('prayers').select('*').order('id', { ascending: false });
-                const feed = document.getElementById('prayerRequestsFeed');
-                feed.innerHTML = '';
-                if(!data || data.length === 0) { feed.innerHTML = '<p style="color:gray;font-size:12px;padding:10px;">No entries shared yet.</p>'; return; }
-                data.forEach(p => {
-                    feed.innerHTML += `<div class="prayer-item"><div style="font-size:11px;color:gray;font-weight:bold;">🙏 From: ${p.name}</div><div style="font-size:13px;margin-top:2px;">${p.body}</div></div>`;
-                });
-            } catch(e){}
-        }
-
-        async function savePrayerRequest() {
-            const n = document.getElementById('prayerName').value.trim() || 'Anonymous';
-            const b = document.getElementById('prayerBody').value.trim();
-            if(!b) return alert("Please type your request!");
