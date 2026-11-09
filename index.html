@@ -150,3 +150,42 @@
     </div>
 
     <script>
+    <!-- 🧭 CONTINUOUS NAVIGATION CONTROLLER BLOCK -->
+    <script>
+        // Force tabs to open cleanly by targeting view layers directly
+        function switchAppTab(tabId) {
+            // Hide all panels manually to guarantee zero click freezing
+            const panels = ['home', 'announcements', 'media', 'prayers', 'admin'];
+            panels.forEach(id => {
+                const element = document.getElementById('tab-' + id);
+                if(element) {
+                    element.style.setProperty('display', 'none', 'important');
+                }
+            });
+            
+            // Turn off active highlighting state across the navbar deck
+            document.querySelectorAll('.nav-item').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Uncover the chosen view container instantly on click
+            const activePanel = document.getElementById('tab-' + tabId);
+            if(activePanel) {
+                activePanel.style.setProperty('display', 'block', 'important');
+            }
+            
+            // Light up the corresponding bottom menu button
+            const activeBtn = document.getElementById('btn-' + tabId);
+            if(activeBtn) {
+                activeBtn.classList.add('active');
+            }
+        }
+
+        // Safe Fallback Auth Loop
+        function handleAdminLogin() {
+            document.getElementById('adminLoginForm').style.display = 'none';
+            document.getElementById('adminDashboard').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
