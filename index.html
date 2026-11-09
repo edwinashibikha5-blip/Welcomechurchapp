@@ -4,85 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>W.P.C - Christ Is The Way Ministries</title>
-    
-    <!-- 🔌 Supabase Client Library Link -->
     <script src="https://jsdelivr.net"></script>
-
     <style>
         :root {
             --primary-green: #1b4d3e;
             --accent-magenta: #e31b6d;
             --bg-light: #f7f9fa;
             --text-dark: #2d3748;
-            --card-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            padding-bottom: 70px;
+            margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); padding-bottom: 70px;
         }
-
         nav {
-            background-color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 16px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.01);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            background-color: #ffffff; display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.01); position: sticky; top: 0; z-index: 100;
         }
-
         .nav-profile { display: flex; align-items: center; gap: 8px; }
         .nav-logo { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--accent-magenta); object-fit: cover; }
         .nav-title { font-size: 13px; font-weight: bold; color: var(--primary-green); }
         .give-btn { background-color: var(--accent-magenta); color: white; padding: 6px 14px; border-radius: 20px; text-decoration: none; font-size: 13px; font-weight: bold; }
-
         .app-tab { display: none; padding: 16px; max-width: 600px; margin: 0 auto; }
         .app-tab.active { display: block; }
-
         .hero-banner {
-            border-radius: 16px;
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--primary-green) 0%, #a21b4b 60%, var(--accent-magenta) 100%);
-            padding: 24px;
-            color: white;
-            margin-bottom: 20px;
-            box-shadow: var(--card-shadow);
+            border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, var(--primary-green) 0%, #a21b4b 60%, var(--accent-magenta) 100%); padding: 24px; color: white; margin-bottom: 20px;
         }
-        .card { background: white; border-radius: 12px; padding: 16px; margin-bottom: 16px; box-shadow: var(--card-shadow); }
-        
+        .card { background: white; border-radius: 12px; padding: 16px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
         .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 10px; }
         .photo-grid img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; background-color: #e2e8f0; }
-
         .form-group { margin-bottom: 14px; }
-        .form-group label { display: block; font-size: 12px; font-weight: bold; color: var(--primary-green); margin-bottom: 4px; }
         .form-group input, .form-group textarea { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e0; box-sizing: border-box; }
         .submit-btn { background-color: var(--primary-green); color: white; border: none; width: 100%; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 14px; }
-
         .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: #ffffff;
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            box-shadow: 0 -4px 10px rgba(0,0,0,0.03);
-            z-index: 1000;
+            position: fixed; bottom: 0; left: 0; right: 0; background-color: #ffffff; display: flex; justify-content: space-around; padding: 10px 0; box-shadow: 0 -4px 10px rgba(0,0,0,0.03); z-index: 1000;
         }
         .nav-item { background: none; border: none; color: #a0aec0; display: flex; flex-direction: column; align-items: center; font-size: 10px; font-weight: bold; cursor: pointer; gap: 4px; }
         .nav-item.active { color: var(--accent-magenta); }
         .nav-item span { font-size: 18px; }
-
-        .prayer-item { border-left: 4px solid var(--primary-green); padding-left: 12px; margin-bottom: 14px; background: #fff; padding: 12px; border-radius: 8px; box-shadow: var(--card-shadow); }
-        .prayer-meta { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; font-weight: bold; }
+        .prayer-item { border-left: 4px solid var(--primary-green); margin-bottom: 14px; background: #fff; padding: 12px; border-radius: 8px; }
     </style>
 </head>
 <body>
@@ -92,77 +50,64 @@
             <img src="images/IMG-20261104-WA0017.jpg" alt="Logo" class="nav-logo" onerror="this.src='https://placeholder.com'">
             <div class="nav-title">W.P.C MINISTRIES</div>
         </div>
-        <a href="#" class="give-btn" onclick="alert('Giving platform loading...')">❤️ Give</a>
+        <a href="#" class="give-btn" onclick="alert('Giving engine active!')">❤️ Give</a>
     </nav>
 
-    <!-- 🏠 TAB 1: HOME PAGE -->
     <div id="home" class="app-tab active">
         <div class="hero-banner">
-            <div style="font-size: 11px; text-transform: uppercase; font-weight: bold; opacity: 0.9;">Welcome Home</div>
+            <div style="font-size: 11px; text-transform: uppercase; font-weight: bold;">Welcome Home</div>
             <h2 style="margin: 4px 0 8px 0; font-size: 24px;">Believe and Belong</h2>
             <p style="margin: 0; font-size: 12px; opacity: 0.8;">Sundays 8:30 AM · Wednesdays 4–6 PM Prayer</p>
         </div>
         <div class="card">
             <h3 style="margin-top:0; color: var(--primary-green);">📖 Daily Devotional</h3>
-            <p id="devotionalText" style="font-style: italic; border-left: 3px solid var(--accent-magenta); padding-left: 10px;">"Enter his gates with thanksgiving..." Loading latest insights from the cloud...</p>
+            <p id="devotionalText" style="font-style: italic; border-left: 3px solid var(--accent-magenta); padding-left: 10px;">"Enter his gates with thanksgiving..." Loading fresh cloud files...</p>
         </div>
     </div>
 
-    <!-- 📢 TAB 2: NOTICES -->
     <div id="announcements" class="app-tab">
-        <h2 style="color: var(--primary-green); margin-top:0;">📢 Church Notice Board</h2>
-        <div id="announcementsFeed">
-            <div class="card">
-                <h3>Thanksgiving Sunday Announcement</h3>
-                <p>Join us as we wrap up our powerful Thanksgiving series this week.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- 🖼️ TAB 3: MEDIA -->
-    <div id="media" class="app-tab">
-        <h2 style="color: var(--primary-green); margin-top:0;">📺 Live Worship Media</h2>
-        <div class="card" style="background-color: #000; text-align: center; padding: 40px 10px; color: white; border-radius: 12px;">
-            <div style="font-size: 24px; margin-bottom: 10px;">🎥</div>
-            <a href="https://youtube.com" target="_blank" style="color: #ff0000; font-weight: bold; text-decoration: none; font-size: 16px;">👉 Click to Stream Our YouTube Channel</a>
-        </div>
-        <h3 style="color: var(--primary-green);">🖼️ Church Gallery</h3>
-        <div class="photo-grid">
-            <img src="images/IMG-20261104-WA0017.jpg" alt="Gallery Photo 1" onerror="this.src='https://placeholder.com'">
-            <img src="images/IMG-20261104-WA0017.jpg" alt="Gallery Photo 2" onerror="this.src='https://placeholder.com'">
-        </div>
-    </div>
-
-    <!-- 🙏 TAB 4: PRAYER WALL -->
-    <div id="prayers" class="app-tab">
-        <h2 style="color: var(--primary-green); margin-top:0;">🙏 Congregation Prayer Wall</h2>
+        <h2 style="color: var(--primary-green); margin-top:0;">📢 Notice Board</h2>
         <div class="card">
-            <h3 style="margin-top:0; font-size:14px;">Add a Prayer Request</h3>
-            <div class="form-group"><input type="text" id="prayerName" placeholder="Your Name (or Anonymous)"></div>
-            <div class="form-group"><textarea id="prayerBody" placeholder="Type your prayer request here..." rows="3"></textarea></div>
-            <button class="submit-btn" onclick="savePrayerRequest()" style="background-color: var(--accent-magenta);">Submit to Prayer Wall</button>
+            <h3>Thanksgiving Series Launch</h3>
+            <p>Join us this week for an impactful prophetic move.</p>
         </div>
-        <div id="prayerRequestsFeed">Loading cloud intentions...</div>
     </div>
 
-    <!-- 🔑 TAB 5: ADMIN -->
+    <div id="media" class="app-tab">
+        <h2 style="color: var(--primary-green); margin-top:0;">📺 Live Channels</h2>
+        <div class="card" style="background-color: #000; text-align: center; padding: 30px 10px; color: white;">
+            <a href="https://youtube.com" target="_blank" style="color: #ff0000; font-weight: bold; text-decoration: none;">🎥 Open YouTube Channel Stream</a>
+        </div>
+        <div class="photo-grid">
+            <img src="images/IMG-20261104-WA0017.jpg" alt="1" onerror="this.src='https://placeholder.com'">
+            <img src="images/IMG-20261104-WA0017.jpg" alt="2" onerror="this.src='https://placeholder.com'">
+        </div>
+    </div>
+
+    <div id="prayers" class="app-tab">
+        <h2 style="color: var(--primary-green); margin-top:0;">🙏 Prayer Wall</h2>
+        <div class="card">
+            <div class="form-group"><input type="text" id="prayerName" placeholder="Your Name (Optional)"></div>
+            <div class="form-group"><textarea id="prayerBody" placeholder="Type prayer request..." rows="3"></textarea></div>
+            <button class="submit-btn" onclick="savePrayerRequest()" style="background-color: var(--accent-magenta);">Submit Intention</button>
+        </div>
+        <div id="prayerRequestsFeed">Loading requests...</div>
+    </div>
+
     <div id="admin" class="app-tab">
-        <h2 style="color: var(--primary-green); margin-top:0;">🔒 Admin Management Panel</h2>
+        <h2 style="color: var(--primary-green); margin-top:0;">🔒 Admin Login</h2>
         <div class="card" id="adminLoginForm">
-            <h3>Secure Dashboard Access</h3>
-            <div class="form-group"><label>Admin Email</label><input type="email" id="adminEmail" placeholder="admin@church.com"></div>
-            <div class="form-group"><label>Password</label><input type="password" id="adminPassword" placeholder="••••••••"></div>
-            <button class="submit-btn" onclick="handleAdminLogin()">Verify Authorization</button>
+            <div class="form-group"><input type="email" id="adminEmail" placeholder="admin@church.com"></div>
+            <div class="form-group"><input type="password" id="adminPassword" placeholder="Password"></div>
+            <button class="submit-btn" onclick="handleAdminLogin()">Login</button>
         </div>
-        
-        <div class="card" id="adminDashboard" style="display: none; border-top: 4px solid var(--accent-magenta);">
-            <h3 style="color: var(--accent-magenta); margin-top:0;">⚡ Live Database Control</h3>
-            <div class="form-group"><label>Update Daily Devotional</label><textarea id="newDevotional" rows="3" placeholder="Type new content here..."></textarea></div>
-            <button class="submit-btn" onclick="publishDevotionalText()">Publish Live Update</button>
+        <div class="card" id="adminDashboard" style="display: none;">
+            <h3>Update Devotional</h3>
+            <div class="form-group"><textarea id="newDevotional" rows="3"></textarea></div>
+            <button class="submit-btn" onclick="publishDevotionalText()">Publish Update</button>
         </div>
     </div>
 
-    <!-- 🧭 Bottom Navigation -->
     <div class="bottom-nav">
         <button class="nav-item active" onclick="switchAppTab('home', this)"><span>🏠</span>Home</button>
         <button class="nav-item" onclick="switchAppTab('announcements', this)"><span>📢</span>Notices</button>
@@ -174,20 +119,47 @@
     <script>
         const SUPABASE_URL = "https://iwtnheoxtarfnsafvsfc.supabase.co"; 
         const SUPABASE_KEY = "sb_publishable_700g78radNE8jijWC";
-        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        const database = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-        // Load content instantly when app opens
-        window.onload = function() {
-            fetchDevotional();
-            fetchPrayers();
-        };
+        window.onload = function() { fetchDevotional(); fetchPrayers(); };
 
         function switchAppTab(tabId, element) {
-            document.querySelectorAll('.app-tab').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            document.querySelectorAll('.app-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
-            element.classList.add('active');
+            if(element) element.classList.add('active');
         }
 
-        // Live Read Operations
         async function fetchDevotional() {
+            const { data } = await database.from('devotionals').select('*').order('id', { ascending: false }).limit(1);
+            if (data && data.length > 0) document.getElementById('devotionalText').innerText = `"${data[0].body}"`;
+        }
+
+        async function fetchPrayers() {
+            const { data } = await database.from('prayers').select('*').order('id', { ascending: false });
+            const feed = document.getElementById('prayerRequestsFeed');
+            feed.innerHTML = '';
+            if(!data || data.length === 0) { feed.innerHTML = '<p style="color:gray;font-size:12px;">No requests shared yet.</p>'; return; }
+            data.forEach(p => {
+                feed.innerHTML += `<div class="prayer-item"><div style="font-size:11px;color:gray;font-weight:bold;">🙏 From: ${p.name}</div><div style="font-size:13px;margin-top:2px;">${p.body}</div></div>`;
+            });
+        }
+
+        async function savePrayerRequest() {
+            const n = document.getElementById('prayerName').value.trim() || 'Anonymous';
+            const b = document.getElementById('prayerBody').value.trim();
+            if(!b) return alert("Type your request!");
+            const { error } = await database.from('prayers').insert([{ name: n, body: b }]);
+            if(!error) { document.getElementById('prayerBody').value = ''; alert("Posted!"); fetchPrayers(); }
+        }
+
+        function handleAdminLogin() {
+            document.getElementById('adminLoginForm').style.display = 'none';
+            document.getElementById('adminDashboard').style.display = 'block';
+        }
+
+        async function publishDevotionalText() {
+            const b = document.getElementById('newDevotional').value.trim();
+            if(!b) return;
+            const { error } = await database.from('devotionals').insert([{ body: b }]);
+            if(!error) { document.getElementById('newDevotional').value = ''; alert("Updated!"); fetchDevotional(); switchAppTab('home'); }
