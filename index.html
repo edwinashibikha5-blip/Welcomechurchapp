@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>W.P.C - Christ Is The Way Ministries</title>
     
-    <!-- ⚡ Asynchronous Non-Blocking Database Initialization Loader -->
-    <script async src="https://supabase.co" id="supabase-script"></script>
+    <!-- 🔌 Stable, Non-Blocking Database Library Connection -->
+    <script src="https://jsdelivr.net"></script>
 
     <style>
         :root {
@@ -16,7 +16,6 @@
             --text-dark: #2d3748;
         }
         
-        /* ⚡ Hardware-Accelerated Layout Engine Rendering layers */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             margin: 0; padding: 0; 
@@ -35,8 +34,8 @@
         .nav-title { font-size: 13px; font-weight: bold; color: var(--primary-green); }
         .give-btn { background-color: var(--accent-magenta); color: white; padding: 6px 14px; border-radius: 20px; text-decoration: none; font-size: 13px; font-weight: bold; }
         
-        /* ⚡ High-Speed Layout Toggle Classes */
-        .app-tab { display: none; padding: 16px; max-width: 600px; margin: 0 auto; will-change: display; }
+        /* ⚡ High-Speed Layout Toggle Viewports */
+        .app-tab { display: none; padding: 16px; max-width: 600px; margin: 0 auto; }
         
         .hero-banner {
             border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, var(--primary-green) 0%, #a21b4b 60%, var(--accent-magenta) 100%); padding: 24px; color: white; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);
@@ -45,7 +44,7 @@
         .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 10px; }
         .photo-grid img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; background-color: #e2e8f0; }
         .form-group { margin-bottom: 14px; }
-        .form-group input, .form-group textarea { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #cbd5e0; box-sizing: border-box; font-size: 14px; -webkit-appearance: none; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #cbd5e0; box-sizing: border-box; font-size: 14px; }
         .submit-btn { background-color: var(--primary-green); color: white; border: none; width: 100%; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 14px; cursor: pointer; }
         
         .bottom-nav {
@@ -53,15 +52,13 @@
         }
         .nav-item { background: none; border: none; color: #a0aec0; display: flex; flex-direction: column; align-items: center; font-size: 11px; font-weight: bold; cursor: pointer; gap: 4px; width: 20%; text-align: center; }
         .nav-item.active { color: var(--accent-magenta); }
-        
-        /* Inline Scalable SVGs to optimize image processing latency */
-        .nav-item svg { width: 22px; height: 22px; fill: currentColor; }
+        .nav-item span { font-size: 20px; display: block; margin-bottom: 2px; }
         .prayer-item { border-left: 4px solid var(--primary-green); margin-bottom: 14px; background: #fff; padding: 12px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.01); }
     </style>
 </head>
 <body>
 
-    <!-- Top Branding Navbar Header Layout -->
+    <!-- Top Branding Navigation Bar -->
     <nav>
         <div class="nav-profile">
             <img src="images/IMG-20261104-WA0017.jpg" alt="Logo" class="nav-logo" onerror="this.src='https://placeholder.com'">
@@ -79,11 +76,11 @@
         </div>
         <div class="card">
             <h3 style="margin-top:0; color: var(--primary-green); font-size: 16px;">📖 Daily Devotional</h3>
-            <p id="devotionalText" style="font-style: italic; border-left: 3px solid var(--accent-magenta); padding-left: 10px; color: #4a5568;">"Enter his gates with thanksgiving..." Loading fresh layout files...</p>
+            <p id="devotionalText" style="font-style: italic; border-left: 3px solid var(--accent-magenta); padding-left: 10px; color: #4a5568;">"Enter his gates with thanksgiving..." Loading fresh database updates live...</p>
         </div>
     </div>
 
-    <!-- 📢 TAB 2: NOTICE FEED PANEL -->
+    <!-- 📢 TAB 2: NOTICE BOARD -->
     <div id="tab-announcements" class="app-tab">
         <h2 style="color: var(--primary-green); margin-top:0; font-size: 20px;">📢 Notice Board</h2>
         <div class="card">
@@ -92,7 +89,7 @@
         </div>
     </div>
 
-    <!-- 🖼️ TAB 3: VIDEO STREAM SELECTION -->
+    <!-- 📺 TAB 3: MEDIA STREAM -->
     <div id="tab-media" class="app-tab">
         <h2 style="color: var(--primary-green); margin-top:0; font-size: 20px;">📺 Live Channels</h2>
         <div class="card" style="background-color: #000; text-align: center; padding: 35px 10px; color: white; border-radius: 12px;">
@@ -104,7 +101,7 @@
         </div>
     </div>
 
-    <!-- 🙏 TAB 4: CONGREGATION INPUT WALL -->
+    <!-- 🙏 TAB 4: PRAYER WALL -->
     <div id="tab-prayers" class="app-tab">
         <h2 style="color: var(--primary-green); margin-top:0; font-size: 20px;">🙏 Prayer Wall</h2>
         <div class="card">
@@ -115,42 +112,55 @@
         <div id="prayerRequestsFeed" style="font-size: 13px; color: #718096;">Syncing cloud layout data feed...</div>
     </div>
 
-    <    <!-- 🧭 CONTINUOUS NAVIGATION CONTROLLER BLOCK -->
-    <script>
-        // Force tabs to open cleanly by targeting view layers directly
-        function switchAppTab(tabId) {
-            // Hide all panels manually to guarantee zero click freezing
-            const panels = ['home', 'announcements', 'media', 'prayers', 'admin'];
-            panels.forEach(id => {
-                const element = document.getElementById('tab-' + id);
-                if(element) {
-                    element.style.setProperty('display', 'none', 'important');
-                }
-            });
-            
-            // Turn off active highlighting state across the navbar deck
-            document.querySelectorAll('.nav-item').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            // Uncover the chosen view container instantly on click
-            const activePanel = document.getElementById('tab-' + tabId);
-            if(activePanel) {
-                activePanel.style.setProperty('display', 'block', 'important');
-            }
-            
-            // Light up the corresponding bottom menu button
-            const activeBtn = document.getElementById('btn-' + tabId);
-            if(activeBtn) {
-                activeBtn.classList.add('active');
-            }
-        }
+    <!-- 🔒 TAB 5: ADMIN DASHBOARD -->
+    <div id="tab-admin" class="app-tab">
+        <h2 style="color: var(--primary-green); margin-top:0; font-size: 20px;">🔒 Admin Panel</h2>
+        <div class="card" id="adminLoginForm">
+            <div class="form-group"><input type="email" id="adminEmail" placeholder="admin@church.com"></div>
+            <div class="form-group"><input type="password" id="adminPassword" placeholder="Password"></div>
+            <button class="submit-btn" onclick="handleAdminLogin()">Login</button>
+        </div>
+        <div class="card" id="adminDashboard" style="display: none;">
+            <h3 style="margin-top:0; font-size: 15px; color: var(--accent-magenta);">Update Devotional</h3>
+            <div class="form-group"><textarea id="newDevotional" rows="3" placeholder="Type text here..."></textarea></div>
+            <button class="submit-btn" onclick="publishDevotionalText()">Publish Update</button>
+        </div>
+    </div>
 
-        // Safe Fallback Auth Loop
-        function handleAdminLogin() {
-            document.getElementById('adminLoginForm').style.display = 'none';
-            document.getElementById('adminDashboard').style.display = 'block';
-        }
-    </script>
-</body>
-</html>
+    <!-- 🧭 BOTTOM NAVIGATION MENU -->
+    <div class="bottom-nav">
+        <button id="btn-home" class="nav-item active" onclick="switchAppTab('home')"><span>🏠</span>Home</button>
+        <button id="btn-announcements" class="nav-item" onclick="switchAppTab('announcements')"><span>📢</span>Notices</button>
+        <button id="btn-media" class="nav-item" onclick="switchAppTab('media')"><span>🖼️</span>Media</button>
+        <button id="btn-prayers" class="nav-item" onclick="switchAppTab('prayers')"><span>🙏</span>Prayers</button>
+        <button id="btn-admin" class="nav-item" onclick="switchAppTab('admin')"><span>🔒</span>Admin</button>
+    </div>
+
+    <script>
+        const SUPABASE_URL = "https://supabase.co"; 
+        const SUPABASE_KEY = "sb_publishable_700g78radNE8jijWC";
+        let databaseClient = null;
+
+        // Run instantly and stably
+        window.onload = function() {
+            try {
+                if (typeof supabase !== 'undefined') {
+                    databaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+                    fetchDevotional();
+                    fetchPrayers();
+                }
+            } catch(e) {
+                console.log("Running in standalone preview layer.");
+            }
+        };
+
+        function switchAppTab(tabId) {
+            document.getElementById('tab-home').style.display = 'none';
+            document.getElementById('tab-announcements').style.display = 'none';
+            document.getElementById('tab-media').style.display = 'none';
+            document.getElementById('tab-prayers').style.display = 'none';
+            document.getElementById('tab-admin').style.display = 'none';
+
+            document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById('tab-' + tabId).style.display = 'block';
