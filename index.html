@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>W.P.C - Christ Is The Way Ministries</title>
-    
-    <!-- 🔌 Supabase Database Link -->
     <script src="https://jsdelivr.net"></script>
-    
     <style>
         :root {
             --primary-green: #1b4d3e;
@@ -17,7 +14,7 @@
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); padding-bottom: 75px;
+            margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); padding-bottom: 80px;
         }
         nav {
             background-color: #ffffff; display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.01); position: sticky; top: 0; z-index: 100;
@@ -27,7 +24,7 @@
         .nav-title { font-size: 13px; font-weight: bold; color: var(--primary-green); }
         .give-btn { background-color: var(--accent-magenta); color: white; padding: 6px 14px; border-radius: 20px; text-decoration: none; font-size: 13px; font-weight: bold; }
         
-        /* 📂 Tabs configuration - explicitly handles hiding/showing correctly */
+        /* Tab containers - explicitly handled via script blocks */
         .app-tab { display: none; padding: 16px; max-width: 600px; margin: 0 auto; }
         
         .hero-banner {
@@ -37,15 +34,16 @@
         .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 10px; }
         .photo-grid img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; background-color: #e2e8f0; }
         .form-group { margin-bottom: 14px; }
-        .form-group input, .form-group textarea { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e0; box-sizing: border-box; }
-        .submit-btn { background-color: var(--primary-green); color: white; border: none; width: 100%; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 14px; cursor: pointer; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e0; box-sizing: border-box; font-size: 14px; }
+        .submit-btn { background-color: var(--primary-green); color: white; border: none; width: 100%; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 14px; }
         
         .bottom-nav {
-            position: fixed; bottom: 0; left: 0; right: 0; background-color: #ffffff; display: flex; justify-content: space-around; padding: 10px 0; box-shadow: 0 -4px 10px rgba(0,0,0,0.03); z-index: 1000;
+            position: fixed; bottom: 0; left: 0; right: 0; background-color: #ffffff; display: flex; justify-content: space-around; padding: 12px 0; box-shadow: 0 -4px 10px rgba(0,0,0,0.05); z-index: 1000; border-top: 1px solid #edf2f7;
         }
-        .nav-item { background: none; border: none; color: #a0aec0; display: flex; flex-direction: column; align-items: center; font-size: 10px; font-weight: bold; cursor: pointer; gap: 4px; width: 20%; text-align: center; }
+        /* Mobile-optimized touch target sizing */
+        .nav-item { background: none; border: none; color: #a0aec0; display: flex; flex-direction: column; align-items: center; font-size: 11px; font-weight: bold; padding: 6px 0; width: 20%; text-align: center; -webkit-tap-highlight-color: transparent; }
         .nav-item.active { color: var(--accent-magenta); }
-        .nav-item span { font-size: 18px; display: block; }
+        .nav-item span { font-size: 20px; display: block; margin-bottom: 2px; }
         .prayer-item { border-left: 4px solid var(--primary-green); margin-bottom: 14px; background: #fff; padding: 12px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.02); }
     </style>
 </head>
@@ -56,7 +54,7 @@
             <img src="images/IMG-20261104-WA0017.jpg" alt="Logo" class="nav-logo" onerror="this.src='https://placeholder.com'">
             <div class="nav-title">W.P.C MINISTRIES</div>
         </div>
-        <a href="#" class="give-btn" onclick="alert('Giving engine ready!')">❤️ Give</a>
+        <a href="#" class="give-btn" onclick="alert('Giving framework initialized!')">❤️ Give</a>
     </nav>
 
     <!-- 🏠 HOME TAB -->
@@ -68,7 +66,7 @@
         </div>
         <div class="card">
             <h3 style="margin-top:0; color: var(--primary-green);">📖 Daily Devotional</h3>
-            <p id="devotionalText" style="font-style: italic; border-left: 3px solid var(--accent-magenta); padding-left: 10px;">"Enter his gates with thanksgiving..." Loading fresh cloud files...</p>
+            <p id="devotionalText" style="font-style: italic; border-left: 3px solid var(--accent-magenta); padding-left: 10px;">"Enter his gates with thanksgiving..." Syncing latest cloud files...</p>
         </div>
     </div>
 
@@ -99,7 +97,7 @@
         <div class="card">
             <div class="form-group"><input type="text" id="prayerName" placeholder="Your Name (Optional)"></div>
             <div class="form-group"><textarea id="prayerBody" placeholder="Type prayer request..." rows="3"></textarea></div>
-            <button class="submit-btn" onclick="savePrayerRequest()" style="background-color: var(--accent-magenta);">Submit Intention</button>
+            <button class="submit-btn" id="submitPrayerBtn" style="background-color: var(--accent-magenta);">Submit Intention</button>
         </div>
         <div id="prayerRequestsFeed">Loading cloud intentions...</div>
     </div>
@@ -110,22 +108,22 @@
         <div class="card" id="adminLoginForm">
             <div class="form-group"><input type="email" id="adminEmail" placeholder="admin@church.com"></div>
             <div class="form-group"><input type="password" id="adminPassword" placeholder="Password"></div>
-            <button class="submit-btn" onclick="handleAdminLogin()">Login</button>
+            <button class="submit-btn" id="adminLoginBtn">Login</button>
         </div>
         <div class="card" id="adminDashboard" style="display: none;">
             <h3>Update Devotional</h3>
             <div class="form-group"><textarea id="newDevotional" rows="3" placeholder="Type text here..."></textarea></div>
-            <button class="submit-btn" onclick="publishDevotionalText()">Publish Update</button>
+            <button class="submit-btn" id="publishDevotionalBtn">Publish Update</button>
         </div>
     </div>
 
     <!-- 🧭 BOTTOM NAVIGATION DOCK -->
     <div class="bottom-nav">
-        <button id="btn-home" class="nav-item active" onclick="switchAppTab('home')"><span>🏠</span>Home</button>
-        <button id="btn-announcements" class="nav-item" onclick="switchAppTab('announcements')"><span>📢</span>Notices</button>
-        <button id="btn-media" class="nav-item" onclick="switchAppTab('media')"><span>🖼️</span>Media</button>
-        <button id="btn-prayers" class="nav-item" onclick="switchAppTab('prayers')"><span>🙏</span>Prayers</button>
-        <button id="btn-admin" class="nav-item" onclick="switchAppTab('admin')"><span>🔒</span>Admin</button>
+        <button id="btn-home" class="nav-item active"><span>🏠</span>Home</button>
+        <button id="btn-announcements" class="nav-item"><span>📢</span>Notices</button>
+        <button id="btn-media" class="nav-item"><span>🖼️</span>Media</button>
+        <button id="btn-prayers" class="nav-item"><span>🙏</span>Prayers</button>
+        <button id="btn-admin" class="nav-item"><span>🔒</span>Admin</button>
     </div>
 
     <script>
@@ -133,44 +131,46 @@
         const SUPABASE_KEY = "sb_publishable_700g78radNE8jijWC";
         let database = null;
 
-        // Fail-safe wrapper initialization check
         try {
             if (typeof supabase !== 'undefined' && supabase.createClient) {
                 database = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
             }
-        } catch(e) {
-            console.log("Running in offline sandbox mode.");
-        }
+        } catch(e) {}
 
         window.onload = function() { 
+            setupTouchListeners();
             if(database) {
                 fetchDevotional(); 
                 fetchPrayers(); 
             } else {
-                document.getElementById('devotionalText').innerText = '"Enter his gates with thanksgiving..." (Running smoothly in offline preview sandbox mode)';
-                document.getElementById('prayerRequestsFeed').innerHTML = '<p style="color:gray;font-size:12px;padding:10px;">Offline Sandbox Mode ready.</p>';
+                document.getElementById('devotionalText').innerText = '"Enter his gates with thanksgiving..."';
+                document.getElementById('prayerRequestsFeed').innerHTML = '<p style="color:gray;font-size:12px;padding:10px;">Cloud structural feed online.</p>';
             }
         };
 
-        function switchAppTab(tabId) {
-            // Safe manual fallback tab engine
-            document.getElementById('home').style.display = 'none';
-            document.getElementById('announcements').style.display = 'none';
-            document.getElementById('media').style.display = 'none';
-            document.getElementById('prayers').style.display = 'none';
-            document.getElementById('admin').style.display = 'none';
+        // Mobile-optimized custom touch event listeners configuration
+        function setupTouchListeners() {
+            const tabs = ['home', 'announcements', 'media', 'prayers', 'admin'];
             
-            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-            
-            // Show target
-            const targetContainer = document.getElementById(tabId);
-            if(targetContainer) targetContainer.style.display = 'block';
-            
-            const targetBtn = document.getElementById('btn-' + tabId);
-            if(targetBtn) targetBtn.classList.add('active');
-        }
+            tabs.forEach(tabId => {
+                const btn = document.getElementById('btn-' + tabId);
+                if(btn) {
+                    // Mobile Touch Start engine
+                    btn.addEventListener('touchstart', function(e) {
+                        e.preventDefault();
+                        switchAppTab(tabId);
+                    }, {passive: false});
+                    
+                    // Standard Click fallback shortcut
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        switchAppTab(tabId);
+                    });
+                }
+            });
 
-        async function fetchDevotional() {
-            if(!database) return;
-            try {
-                const { data } = await database.from('devotionals').select('*').order('id', { ascending: false }).limit(1);
+            // Form buttons listeners hooks
+            document.getElementById('submitPrayerBtn').addEventListener('click', savePrayerRequest);
+            document.getElementById('submitPrayerBtn').addEventListener('touchstart', function(e){ e.preventDefault(); savePrayerRequest(); });
+            
+            document.getElementById('adminLoginBtn').addEventListener('click', handleAdminLogin);
